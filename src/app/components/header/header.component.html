@@ -1,0 +1,37 @@
+<nav class="flex w-full bg-[#FBFBFB] py-2 text-neutral-500 shadow-lg lg:py-4">
+  <div class="flex justify-between w-full items-center px-3">
+    <div class="flex">
+      <div class="ml-2">
+        <a class="text-xl font-semibold text-neutral-800" [routerLink]="route"
+          >Recipe Book</a
+        >
+      </div>
+
+      <div class="ml-2">
+        <a
+          class="text-xl font-semibold text-neutral-800"
+          routerLink="/shopping-list"
+          >Shopping List</a
+        >
+      </div>
+    </div>
+    <div class="flex items-center">
+      <div class="ml-2" *ngIf="!user">
+        <a class="text-xl font-semibold text-neutral-800" routerLink="/auth"
+          >Authenticate</a
+        >
+      </div>
+      <div class="ml-2" *ngIf="user">
+        <p>Welcome, {{ user.email }}</p>
+      </div>
+      <div class="ml-2" *ngIf="user">
+        <button
+          class="text-xl font-semibold text-neutral-800"
+          (click)="onLogout()"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

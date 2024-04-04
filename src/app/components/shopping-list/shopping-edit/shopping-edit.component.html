@@ -1,0 +1,43 @@
+<div class="h-full">
+  <div class="flex h-full justify-center items-center">
+    <form #ingredientForm="ngForm" (ngSubmit)="onSubmit(ingredientForm)">
+      <div class="mb-5">
+        <input
+          type="text"
+          class="p-2 rounded-xl border shadow"
+          id="name"
+          name="name"
+          placeholder="Ingredient name"
+          ngModel
+          required
+          autocomplete="off"
+        />
+      </div>
+      <div class="flex justify-around">
+        <button
+          type="submit"
+          class="bg-blue-400 p-2 rounded-xl"
+          [disabled]="!ingredientForm.valid"
+        >
+          {{ editMode ? "Edit" : "Add" }}
+        </button>
+        <button
+          type="button"
+          class="bg-orange-400 p-2 rounded-xl"
+          (click)="onClear()"
+          [disabled]="!ingredientForm.valid"
+        >
+          Clear
+        </button>
+        <button
+          type="button"
+          class="bg-red-500 p-2 rounded-xl"
+          *ngIf="editMode"
+          (click)="onDelete()"
+        >
+          Delete
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

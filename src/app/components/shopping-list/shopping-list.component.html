@@ -1,0 +1,27 @@
+<div class="flex h-full">
+  <div class="w-1/3">
+    <app-shopping-edit></app-shopping-edit>
+  </div>
+  <div class="w-2/3">
+    <div class="flex items-center justify-center h-full">
+      <div class="bg-white p-10 w-[600px] h-[500px] rounded-xl shadow-xl">
+        <ul>
+          <li
+            *ngIf="ingredients.length == 0"
+            class="bg-slate-200 p-5 mb-3 rounded-xl"
+          >
+            No ingredients added yet!
+          </li>
+          <a
+            *ngFor="let ingredient of ingredients; let i = index"
+            class="cursor-pointer"
+            (click)="onEditItem(i)"
+            ><li class="bg-slate-200 p-5 mb-3 rounded-xl">
+              {{ ingredient.name }}
+            </li></a
+          >
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

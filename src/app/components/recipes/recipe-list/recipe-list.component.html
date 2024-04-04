@@ -1,0 +1,28 @@
+<div class="p-4 lg:p-10">
+  <div>
+    <button
+      type="button"
+      (click)="onNewRecipe()"
+      class="p-3 bg-blue-500 text-white text-xl rounded-lg"
+    >
+      New Recipe
+    </button>
+  </div>
+
+  <div
+    class="mt-10 overflow-y-auto overflow-x-hidden max-h-[320px] lg:max-h-[600px] xl:w-[500px]"
+  >
+    <div
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-5"
+    >
+      <ng-container *ngFor="let recipeEl of recipes | async">
+        <div class="bg-slate-200 size-44 lg:size-28 rounded-xl">
+          <app-recipe-item
+            [recipe]="recipeEl"
+            [index]="recipeEl.key"
+          ></app-recipe-item>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
